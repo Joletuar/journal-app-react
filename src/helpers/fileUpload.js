@@ -2,7 +2,7 @@ export const fileUpload = async (file) => {
   // if (!file) throw new Error('No ha seleccionado ningún archivo');
   if (!file) return null;
 
-  const clodUrl = 'https://api.cloudinary.com/v1_1/dviezfcgy/upload';
+  const clodUrl = import.meta.env.VITE_CLOUD_URL;
 
   const formData = new FormData();
   formData.append('upload_preset', 'react-journal');
@@ -17,7 +17,6 @@ export const fileUpload = async (file) => {
     if (!resp.ok) throw new Error('No se pudo subir la imagen');
 
     const cloudResp = await resp.json();
-
     return cloudResp.secure_url;
   } catch (error) {
     // throw new Error(error.message);

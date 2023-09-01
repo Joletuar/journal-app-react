@@ -25,6 +25,7 @@ export const startNewNote = () => {
       title: '',
       body: '',
       date: new Date().getTime(),
+      imageUrls: [],
     };
 
     // Referenciamos la ruta donde vamos almacenar la nota
@@ -84,6 +85,7 @@ export const startUploadingFiles = (files = []) => {
 
     // Disparamos todas las promesas dentro del arreglo
     const photoUrls = await Promise.all(fileUploadPromises);
+    console.log(photoUrls);
     dispatch(setPhotosToActiveNote(photoUrls));
   };
 };

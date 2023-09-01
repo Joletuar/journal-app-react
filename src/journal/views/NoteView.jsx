@@ -53,6 +53,7 @@ export const NoteWiew = () => {
   };
 
   const onFileInputChange = ({ target }) => {
+    console.log(!target.files.length);
     if (!target.files.length) return;
     dispatch(startUploadingFiles(target.files));
   };
